@@ -28,17 +28,18 @@ I'm a CS engineering student focused on **game development**. I like designing s
 
 ## Projects
 
-### Alchemy Game *(original concept, in development)*
-A cozy alchemy and potion-making game inspired by Stardew Valley, built in **Godot 4** with **GDExtension**. The core systems are designed with discrete math:
+### Potion Crafting Engine *(original project, in development)*
+An engine-agnostic C++ library with a C interface for building potion-crafting systems in any game engine. Instead of hard-coded recipes, every potion is a point in a 3D space, so developers can define their own ingredients, domains, and effects and let players discover potions from scratch. The core is built on discrete and Euclidean geometry:
 
-- **Prime numbers** as ingredient identifiers
-- **Modular arithmetic in Z₁₁** to keep effects bounded
-- **Finite linear algebra** to model how each process transforms ingredients
-- Four alchemical kingdoms (**Oros, Bastos, Espadas, Copas**) and four processes (**Caldero, Sublimación, Maceración, Calcinación**)
+- **Potions as points in a 3D cube:** each ingredient is a 3D vector over **Z₁₁**
+- **Mixing via modular arithmetic:** combining two ingredients applies an operator (addition, subtraction, multiplication, or exponentiation) to their vectors, then reduces the result modulo 11, so every outcome stays bounded
+- **Effect detection with Euclidean geometry:** a recipe triggers an effect when its resulting point falls within the effect's range
+- **Effect strength via normalized distance:** the closer the point is to the effect's center, the stronger the result
+- **Developer-defined domains** to organize ingredients and effects
 - Five formal entities with five invariants, documented in a formal design document
 - **Data-driven architecture** with JSON
 
-**Stack:** `Godot 4` · `GDExtension` · `JSON`
+**Stack:** `C++` · `C API` · `JSON`
 **Links:** [Repository](#) · [Design document](#)
 
 ---
