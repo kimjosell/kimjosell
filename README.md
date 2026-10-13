@@ -1,4 +1,4 @@
-<h1 align="center">Hi, I'm Kim</h1>
+<h1 align="center">Hi, I'm Kim Josell</h1>
 
 <p align="center">
   <b>Computer Science Engineering student · Game Developer</b><br/>
