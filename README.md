@@ -47,24 +47,7 @@ A cozy alchemy and potion-making game inspired by Stardew Valley, built in **God
 A mod that makes spouses more dynamic in the base game.
 
 **Stack:** `C#` · `SMAPI`
-**Links:** [Repository](#) · [Nexus Mods](#)
-
----
-
-### Stardew Valley Mod: Dynamic Economy *(in development)*
-A mod that changes item prices according to the season and the year, adding a layer of strategy to the farm economy.
-
-- Category-based model: wines/juices, preserves, fresh crops, animal products, honey/flowers, fish/seafood
-- Seasonal multipliers and difficulty tiers
-- NPC dialogue as an in-world hint system
-- Naturally touches on supply and demand, diversification and market seasonality
-
-**Stack:** `C#` · `SMAPI`
-**Links:** [Repository](#) · [Nexus Mods](#)
-
-> Along the way I've also decompiled vanilla game code with **dnSpy** to replicate the logic of `WateringCan.DoFunction`, recreating watering particle effects with `TemporaryAnimatedSprite`.
-
----
+**Links:** [Repository](https://github.com/kimjosell/helpfulSpouses) · [Nexus Mods](#)
 
 <!--
 ===========================================
