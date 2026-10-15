@@ -40,15 +40,35 @@ An engine-agnostic C++ library with a C interface for building potion-crafting s
 - **Data-driven architecture** with JSON
 
 **Stack:** `C++` · `C API` · `JSON`
-**Links:** [Repository](#) · [Design document](#)
+**Links:** [Repository](https://github.com/kimjosell/PotionCraftingEngine) · [Design document](https://github.com/kimjosell/PotionCraftingEngine/blob/main/docs/DomainExpansion.png)
 
 ---
 
-### Stardew Valley Mod: Dynamic Spouses *(in development)*
-A mod that makes spouses more dynamic in the base game.
+### Potion Crafting Analyzer *(status: prototype)*
+A game-balance tool for a potion crafting system. It searches the full recipe space for the cheapest way to reach every result, then reports which effects players can make, what they cost, and which ingredients dominate or go unused.
 
-**Stack:** `C#` · `SMAPI`
-**Links:** [Repository](https://github.com/kimjosell/helpfulSpouses) · [Nexus Mods](#)
+- Dijkstra-style minimum-cost search over 1,331 points, with costs that depend on operation, ingredient tier, and repetition
+- Python analyzer driving a C++ engine through a C API over FFI (`ctypes`), with opaque handles freed exactly once via `weakref.finalize`
+- Surfaced real balance issues: the strongest effect was the cheapest to craft, and one ingredient appeared in under 5% of recipes
+
+**Stack:** `Python` · `C++` · `C API / FFI` · `ctypes`
+**Links:** [Repository](https://github.com/kimjosell/PotionCraftingAnalyzer) · [Engine](https://github.com/kimjosell/PotionCraftingEngine)
+
+---
+
+### Helpful Spouses *(status: in development)*
+A Stardew Valley mod built with SMAPI that turns your spouse into a real companion on the farm. Instead of standing around the house, they can follow you around and help with chores like watering your crops.
+
+- **State-driven companion AI:** the spouse switches between `Idle`, `Following` and `Watering` states, each with its own behavior that runs on game update ticks.
+- **Smooth following:** the spouse walks along a queue of the player's recent positions, so they trace your actual route instead of teleporting or getting stuck on corners. The trail resets cleanly when you warp between locations.
+- **Pathfinding-based watering:** the spouse looks for unwatered crops and walks to each one. Crops it can't reach are skipped and tried again at the end, so the routine never stalls.
+- **In-game interaction:** press `G` near your spouse to open a dialogue menu (follow / settings / cancel), with HUD feedback messages.
+- **Custom sprites and localization:** per-NPC watering animations are loaded through SMAPI's content pipeline. All text is localized (English and Spanish) with i18n files.
+
+**Stack:** `C#` · `.NET 6` · `SMAPI` · `MonoGame/XNA`
+**Links:** [Repository](https://github.com/kimjosell/helpfulSpouses)
+
+![Spouse watering crops](path/to/image.gif)
 
 <!--
 ===========================================
